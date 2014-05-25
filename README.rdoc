@@ -1,27 +1,16 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is Matt Duguay's version of the Ruby On Rails tutorial sample application
 
-Things you may want to cover:
+Some highlights / lessons learned:
 
-* Ruby version
+* Some pure Ruby in app/helpers
 
-* System dependencies
+* Using RSpec to run tests
 
-* Configuration
+* Using Active Record with SQLite to store information
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Deployment to heroku here[http://polar-peak-2944.herokuapp.com/users]
 
 
 Please feel free to use a different markup language if you do not plan to run
