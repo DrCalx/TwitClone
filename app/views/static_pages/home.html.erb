@@ -1,10 +1,10 @@
 <div class="center hero-unit">
 	<% provide(:title, 'Home') %>
-	<h1>Sample App</h1>
+	<h1>The Microblogging App</h1>
 	<h2>This is my Sample App. There are many like it, but this one is mine.</h2>
-	<p>This is the home page for the sample application</p>
+	<p>This is the home page for what will eventually become a twitter clone.</p>
 	<p>The tutorial itself can be found <a href="http://railstutorial.org/">here</a> if you're so inclined</p>
-	<%= link_to "Sign up, it's great!", '#', class: "btn btn-large btn-primary" %>
+	<%= link_to "Sign up, it's great!", signup_path, class: "btn btn-large btn-primary" %>
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
