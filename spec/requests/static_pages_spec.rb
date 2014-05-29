@@ -4,10 +4,18 @@ describe "StaticPages" do
 
   subject { page }
 
+  shared_examples_for "static pages" do
+    it { should have_selector('h1', text: heading) }
+    it { should have_title(full_title(page_title)) }
+  end
+
   describe "Contact Page" do
     before { visit contact_path }
-    it { should have_content('Contact') }
-    it { should have_title(full_title("Contact")) }
+
+    let(:heading)     { 'Contact' }
+    let(:page_title)  { 'Contact' }
+
+    it_should_behave_like "static pages"
   end
 
   describe "Home Page" do
