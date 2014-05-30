@@ -1,14 +1,33 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(name: "Example User", email: "user@example.com") }
+  before { @user = User.new(name: "Example User", email: "user@example.com", 
+                            password: "password", password_confirmation: "password") }
 
   subject { @user }
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
+  it { should respond_to(:password_digest) }
+  it { should respond_to(:password) }
+  it { should respond_to(:password_confirmation) }
 
   it { should be_valid }
+
+  describe "when password is not present" do
+    before { @user = User.new(name: "me", email: "me@myself.org", password: " ", password_confirmation: " ") }
+    it { should_not be_valid }
+  end
+
+  describe "when password doesn't match confirmation" do
+    before { @user.password_confirmation = "mismatch" }
+    it { should_not be_valid }
+  end
+
+  describe "when password is too short" do
+    before { @user.password = @user.password_confirmation = "12345" }
+    it { should_not be_valid }
+  end
 
   describe "should not allow blank names" do
   	before { @user.name = " " }
