@@ -7,7 +7,7 @@ describe ApplicationHelper do
 		end
 
 		it "should include base title" do
-			expect(full_title("foo")).to match(/^Ruby on Rails Tutorial Sample App/)
+			expect(full_title("foo")).to match(/Twitter Clone Tutorial/)
 		end
 
 		it "shouldn't have a bar for the home page" do

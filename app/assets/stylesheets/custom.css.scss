@@ -8,6 +8,12 @@ section {overflow: auto;}
 
 textarea {resize: vertical;}
 
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .center { text-align: center; 
 
    h1 { margin-bottom: 10px; }
@@ -82,4 +88,12 @@ footer {
       margin-left: 10px;
     }
   }
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
