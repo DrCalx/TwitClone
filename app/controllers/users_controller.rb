@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
+			flash[:success] = "Congrats on signing up!"
 			redirect_to @user #why the hell does this work?
 		else
 			render 'new' #add flash with fail tokens? Don't need to. Rails puts erros in User object.
