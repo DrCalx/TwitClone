@@ -23,6 +23,12 @@ describe "UserPages" do
 			it "should not create a user" do
 				expect { click_button submit }.not_to change(User, :count)
 			end
+
+			describe "after submission" do
+				before { click_button submit }
+				it { should have_title("Sign Up") }
+				it { should have_content("error") }
+			end
 		end
 
 		describe "with valid information" do
@@ -35,6 +41,13 @@ describe "UserPages" do
 
 			it "should create user" do
 				expect { click_button submit }.to change(User, :count).by(1)
+			end
+
+			describe "after saving user" do
+				before { click_button submit }
+				let(:newUser) { User.find_by(email: 'test@test.com') } #index on email
+
+				it { should have_title(newUser.name) }
 			end
 		end
 	end
