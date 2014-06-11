@@ -10,7 +10,22 @@ class User < ActiveRecord::Base
 
 	#Callbacks
 	before_save { self.email = self.email.downcase }
+	before_create :create_remember_token
 
 	#Rails will take care of password stuff with this call
 	has_secure_password
+
+	def User.new_remember_token
+		"123"
+	end
+
+	def User.digest(token)
+		Digest::SHA1.hexdigest(token.to_s)
+	end
+
+	private
+
+		def create_remember_token
+			self.remember_token = User.digest(new_remember_token)
+		end		
 end
