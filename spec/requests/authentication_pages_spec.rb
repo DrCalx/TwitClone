@@ -10,11 +10,11 @@ describe "AuthenticationPages" do
 
 		describe "with invalid info" do
 			before { click_button "Sign in" }
-			it { should have_selector('div.alert.alert-error') }
+			it { should have_error_message('Invalid') }
 
 			describe "visiting another page" do
 				before { click_link "Home" }
-				it { should_not have_selector('div.alert.alert-error') }
+				it { should_not have_error_message('Invalid') }
 			end
 
 			describe "after submission" do
@@ -25,11 +25,7 @@ describe "AuthenticationPages" do
 
 		describe "with valid info" do
 			let(:factoryUser) { FactoryGirl.create(:user) }
-			before do
-				fill_in "Email", with: factoryUser.email.upcase
-				fill_in "Password", with: factoryUser.password
-				click_button "Sign in"
-			end
+			before { valid_signin(factoryUser) }
 
 			it { should have_title(factoryUser.name) }
 			it { should have_link('Profile', 		href:user_path(factoryUser)) }
