@@ -47,7 +47,9 @@ describe "UserPages" do
 				before { click_button submit }
 				let(:newUser) { User.find_by(email: 'test@test.com') } #index on email
 
+				it { should have_link('Sign out') }
 				it { should have_title(newUser.name) }
+				it { should have_selector('div.alert.alert-success', text: 'Congrats') }
 			end
 		end
 	end

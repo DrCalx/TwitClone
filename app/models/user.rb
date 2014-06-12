@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	def User.new_remember_token
-		"123"
+		SecureRandom.urlsafe_base64
 	end
 
 	def User.digest(token)
