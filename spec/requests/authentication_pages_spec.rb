@@ -29,6 +29,7 @@ describe "AuthenticationPages" do
 
 			it { should have_title(factoryUser.name) }
 			it { should have_link('Profile', 		href:user_path(factoryUser)) }
+			it { should have_link('Settings', 		href:edit_user_path(factoryUser)) }
 			it { should have_link('Sign out', 		href:signout_path) }
 			it { should_not have_link('Sign in', 	href:signin_path) }
 		end

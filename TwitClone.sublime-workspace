@@ -12,51 +12,27 @@
 	"buffers":
 	[
 		{
-			"file": "config/environments/test.rb",
+			"file": "spec/requests/authentication_pages_spec.rb",
 			"settings":
 			{
-				"buffer_size": 1678,
+				"buffer_size": 969,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "spec/support/utils.rb",
+			"settings":
+			{
+				"buffer_size": 459,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "spec/requests/user_pages_spec.rb",
 			"settings":
 			{
-				"buffer_size": 412,
+				"buffer_size": 1467,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/users/show.html.erb",
-			"settings":
-			{
-				"buffer_size": 188,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/helpers/users_helper.rb",
-			"settings":
-			{
-				"buffer_size": 241,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/users.css.scss",
-			"settings":
-			{
-				"buffer_size": 176,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/custom.css.scss",
-			"settings":
-			{
-				"buffer_size": 1796,
-				"line_ending": "Windows"
 			}
 		}
 	],
@@ -84,24 +60,38 @@
 	},
 	"file_history":
 	[
-		"/C/Sites/Tutorial/sample_app/spec/requests/user_pages_spec.rb",
-		"/C/Sites/Tutorial/sample_app/spec/factories.rb",
-		"/C/Sites/Tutorial/sample_app/app/views/users/show.html.erb",
-		"/C/Sites/Tutorial/sample_app/spec/helpers/application_helper_spec.rb",
-		"/C/Sites/Tutorial/sample_app/Gemfile",
-		"/C/Sites/Tutorial/sample_app/spec/models/user_spec.rb",
-		"/C/Sites/Tutorial/sample_app/app/models/user.rb",
-		"/C/Sites/Tutorial/sample_app/app/views/layouts/application.html.erb",
-		"/C/Sites/Tutorial/sample_app/app/assets/stylesheets/custom.css.scss",
-		"/C/Sites/Tutorial/sample_app/config/routes.rb",
 		"/C/Sites/Tutorial/sample_app/app/controllers/users_controller.rb",
-		"/C/Sites/Tutorial/sample_app/db/migrate/20140530182117_add_index_to_user_email.rb",
-		"/C/Sites/Tutorial/sample_app/spec/requests/static_pages_spec.rb",
+		"/C/Sites/Tutorial/sample_app/spec/requests/user_pages_spec.rb",
+		"/C/Sites/Tutorial/sample_app/spec/requests/authentication_pages_spec.rb",
 		"/C/Sites/Tutorial/sample_app/spec/support/utils.rb",
+		"/C/Sites/Tutorial/sample_app/config/routes.rb",
+		"/C/Sites/Tutorial/sample_app/spec/helpers/application_helper_spec.rb",
+		"/C/Sites/Tutorial/sample_app/spec/models/user_spec.rb",
+		"/C/Sites/Tutorial/sample_app/spec/requests/static_pages_spec.rb",
+		"/C/Sites/Tutorial/sample_app/spec/spec_helper.rb",
+		"/C/Sites/Tutorial/sample_app/app/views/layouts/_header.html.erb",
+		"/C/Sites/Tutorial/sample_app/app/controllers/sessions_controller.rb",
+		"/C/Sites/Tutorial/sample_app/app/helpers/sessions_helper.rb",
+		"/C/Sites/Tutorial/sample_app/app/models/user.rb",
+		"/C/Sites/Tutorial/sample_app/app/assets/javascripts/application.js",
+		"/C/Sites/Tutorial/sample_app/app/assets/stylesheets/custom.css.scss",
+		"/C/Sites/Tutorial/sample_app/app/assets/stylesheets/application.css",
+		"/C/Sites/Tutorial/sample_app/app/controllers/application_controller.rb",
+		"/C/Sites/Tutorial/sample_app/db/migrate/20140611211509_add_remember_token_to_users.rb",
+		"/C/Sites/Tutorial/sample_app/app/views/sessions/new.html.erb",
+		"/C/Sites/Tutorial/sample_app/app/views/layouts/application.html.erb",
 		"/C/Sites/Tutorial/sample_app/app/views/users/new.html.erb",
+		"/C/Sites/Tutorial/sample_app/config/environments/production.rb",
+		"/C/Sites/Tutorial/sample_app/app/views/users/show.html.erb",
+		"/C/Sites/Tutorial/sample_app/app/views/shared/_error_messages.html.erb",
+		"/C/Sites/Tutorial/sample_app/app/assets/stylesheets/users.css.scss",
+		"/C/Sites/Tutorial/sample_app/config/environments/test.rb",
+		"/C/Sites/Tutorial/sample_app/app/helpers/users_helper.rb",
+		"/C/Sites/Tutorial/sample_app/spec/factories.rb",
+		"/C/Sites/Tutorial/sample_app/Gemfile",
+		"/C/Sites/Tutorial/sample_app/db/migrate/20140530182117_add_index_to_user_email.rb",
 		"/C/Sites/Tutorial/sample_app/app/views/static_pages/about.html.erb",
 		"/C/Sites/Tutorial/sample_app/app/helpers/application_helper.rb",
-		"/C/Sites/Tutorial/sample_app/app/views/layouts/_header.html.erb",
 		"/C/Sites/Tutorial/sample_app/app/views/static_pages/home.html.erb",
 		"/C/Sites/Tutorial/sample_app/app/views/layouts/_footer.html.erb",
 		"/C/Sites/Tutorial/sample_app/app/views/layouts/_shim.html.erb",
@@ -109,11 +99,9 @@
 		"/C/Sites/Tutorial/sample_app/app/views/static_pages/contact.html.erb",
 		"/C/Sites/Tutorial/sample_app/app/views/static_pages/help.html.erb",
 		"/C/Sites/Tutorial/sample_app/example_user.rb",
-		"/C/Sites/Tutorial/sample_app/app/assets/stylesheets/application.css",
 		"/C/Sites/Tutorial/sample_app/config/application.rb",
 		"/C/Sites/Tutorial/sample_app/app/example_user.rb",
 		"/C/Sites/Tutorial/sample_app/README.rdoc",
-		"/C/Sites/Tutorial/sample_app/spec/spec_helper.rb",
 		"/C/Users/Matt/Documents/Journal/Let's et do7",
 		"/C/Users/Matt/Documents/Journal/Go to  Bed",
 		"/C/Users/Matt/Documents/Journal/Something is going on in somerville today. There a",
@@ -158,6 +146,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"user_path",
+			"contact_path",
 			"gravitar",
 			"ApplicationHelper",
 			"\"ApplicationHelper\"",
@@ -190,51 +180,23 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/environments/test.rb",
+					"file": "spec/requests/authentication_pages_spec.rb",
 					"settings":
 					{
-						"buffer_size": 1678,
+						"buffer_size": 969,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1673,
-								1673
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 405.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "spec/requests/user_pages_spec.rb",
-					"settings":
-					{
-						"buffer_size": 412,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								218,
-								218
+								698,
+								698
 							]
 						],
 						"settings":
@@ -243,51 +205,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/views/users/show.html.erb",
+					"buffer": 1,
+					"file": "spec/support/utils.rb",
 					"settings":
 					{
-						"buffer_size": 188,
+						"buffer_size": 459,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								149,
-								149
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/helpers/users_helper.rb",
-					"settings":
-					{
-						"buffer_size": 241,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								49,
-								49
+								200,
+								200
 							]
 						],
 						"settings":
@@ -295,17 +231,17 @@
 							"syntax": "Packages/Ruby/Ruby.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 50.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/assets/stylesheets/users.css.scss",
+					"buffer": 2,
+					"file": "spec/requests/user_pages_spec.rb",
 					"settings":
 					{
-						"buffer_size": 176,
+						"buffer_size": 1467,
 						"regions":
 						{
 						},
@@ -318,38 +254,11 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/assets/stylesheets/custom.css.scss",
-					"settings":
-					{
-						"buffer_size": 1796,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1705,
-								1705
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1474.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
