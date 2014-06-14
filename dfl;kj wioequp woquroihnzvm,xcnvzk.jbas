@@ -1,0 +1,61 @@
+[1mdiff --git a/spec/requests/authentication_pages_spec.rb b/spec/requests/authentication_pages_spec.rb[m
+[1mindex 2cd4ac8..91dd00f 100644[m
+[1m--- a/spec/requests/authentication_pages_spec.rb[m
+[1m+++ b/spec/requests/authentication_pages_spec.rb[m
+[36m@@ -50,12 +50,28 @@[m [mdescribe "Authentication" do[m
+ 					specify { expect(response).to redirect_to(signin_path) }[m
+ 				end[m
+ 			end[m
+[32m+[m
+[32m+[m			[32mdescribe "when attempting to visit a protected page" do[m
+[32m+[m				[32mbefore do[m
+[32m+[m					[32mvisit edit_user_path(user)[m
+[32m+[m					[32m#at this poitn i should get redirected to sign in page[m
+[32m+[m					[32mfill_in "Email", 	with: user.email[m
+[32m+[m					[32mfill_in "Password", with: user.password[m
+[32m+[m					[32mclick_button "Sign in"[m
+[32m+[m				[32mend[m
+[32m+[m
+[32m+[m				[32mdescribe "after signing in" do[m
+[32m+[m					[32mit "should render desired page" do[m
+[32m+[m						[32mexpect(page).to have_title("Edit user")[m
+[32m+[m					[32mend[m
+[32m+[m				[32mend[m
+[32m+[m			[32mend[m
+ 		end[m
+ [m
+ 		describe "as wrong user" do[m
+ 			let(:user) { FactoryGirl.create(:user) }[m
+ 			let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@user.com") }[m
+[31m-			before{ valid_signin user }[m
+[32m+[m			[32mbefore{ valid_signin user, no_capybara: true }[m
+ [m
+ 			describe "submit a GET to Users#edit action" do[m
+ 				before { get edit_user_path(wrong_user) }[m
+[1mdiff --git a/spec/support/utils.rb b/spec/support/utils.rb[m
+[1mindex 3674b94..c62e47e 100644[m
+[1m--- a/spec/support/utils.rb[m
+[1m+++ b/spec/support/utils.rb[m
+[36m@@ -9,11 +9,17 @@[m [mdef full_title(page_title)[m
+ 	end[m
+ end[m
+ [m
+[31m-def valid_signin(user)[m
+[31m-	visit signin_path[m
+[31m-	fill_in "Email", with: user.email[m
+[31m-	fill_in "Password", with: user.password[m
+[31m-	click_button "Sign in"[m
+[32m+[m[32mdef valid_signin(user, options={})[m[41m[m
+[32m+[m	[32mif options[:no_capybara][m[41m[m
+[32m+[m		[32mremember_token = User.new_remember_token[m[41m[m
+[32m+[m		[32mcookies[:remember_token] = remember_token[m[41m[m
+[32m+[m		[32muser.update_attribute(:remember_token, User.digest(remember_token))[m[41m[m
+[32m+[m	[32melse[m[41m[m
+[32m+[m		[32mvisit signin_path[m[41m[m
+[32m+[m		[32mfill_in "Email", with: user.email[m[41m[m
+[32m+[m		[32mfill_in "Password", with: user.password[m[41m[m
+[32m+[m		[32mclick_button "Sign in"[m[41m[m
+[32m+[m	[32mend[m[41m[m
+ end[m
+ [m
+ RSpec::Matchers.define :have_error_message do |message|[m
