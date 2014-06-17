@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	#db associations (Rails will add methods and validations)
+	has_many :microposts, dependent: :destroy
+
 	#Constant
 	EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

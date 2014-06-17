@@ -13,6 +13,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
+  it { should respond_to(:microposts) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -69,5 +70,28 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "micropost associations" do
+    before { @user.save }
+    #Note how we're creating the older one first, so it will have a lower id
+    let!(:older_post) do
+      FactoryGirl.create(:micropost, user:@user, created_at: 1.day.ago)
+    end
+    let!(:newer_post) do
+      FactoryGirl.create(:micropost, user:@user, created_at: 1.hour.ago)
+    end
+
+    it "should return posts in the correct order" do
+      expect(@user.microposts.to_a).to eq [newer_post, older_post]
+    end
+
+    it "should destroy posts when destroyed" do
+      microposts = @user.microposts.to_a
+      @user.destroy
+      microposts.each do |micropost|
+        expect(Micropost.where(id: micropost.id)).to be_empty
+      end
+    end
   end
 end
