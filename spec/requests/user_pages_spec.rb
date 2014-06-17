@@ -27,6 +27,26 @@ describe "User" do
 				end
 			end
 		end
+		describe "delete links" do
+			it { should_not have_link('delete') }
+
+			describe "as an admin" do
+				let(:admin) { FactoryGirl.create(:admin) }
+				before do
+					valid_signin admin
+					visit users_path
+				end
+
+				it { should have_link('delete', href:user_path(User.first)) }
+				it "deleting another user" do
+					expect do
+						click_link('delete', match: :first)
+					end.to change(User, :count).by(-1)
+				end
+				it { should_not have_link('delete', href: user_path(admin)) }
+			end
+		end
+
 	end
 
 	describe "Signup page" do
