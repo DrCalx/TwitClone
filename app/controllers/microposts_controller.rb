@@ -7,7 +7,9 @@ class MicropostsController < ApplicationController
 			flash[:success] = "Post created!"
 			redirect_to root_url
 		else
-			render 'static_pages/home'
+			#render 'static_pages/home'
+			flash[:error] = "No blank posts plz"
+			redirect_to root_url
 		end
 	end
 
