@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
 	#db associations (Rails will add methods and validations)
-	has_many :microposts, dependent: :destroy
+	has_many :microposts, dependent: :destroy #Implied foreign key "user_id" filled in by Rails
+	has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+	has_many :followed_users, through: :relationships, source: :followed
+	has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
+	has_many :followers, through: :reverse_relationships, source: :follower
 
 	#Constant
 	EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -28,6 +32,18 @@ class User < ActiveRecord::Base
 
 	def feed
 		Micropost.where("user_id = ?", id)
+	end
+
+	def following?(other_user)
+		relationships.find_by(followed_id: other_user.id)
+	end
+
+	def follow!(other_user)
+		relationships.create!(followed_id: other_user.id)
+	end
+
+	def unfollow!(other_user)
+		relationships.find_by(followed_id: other_user.id).destroy
 	end
 
 	private
