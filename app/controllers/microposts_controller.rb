@@ -8,9 +8,8 @@ class MicropostsController < ApplicationController
 			flash[:success] = "Post created!"
 			redirect_to root_url
 		else
-			#render 'static_pages/home'
-			flash[:error] = "No blank posts plz"
-			redirect_to root_url
+			@feed_items = current_user.feed.paginate(page: params[:page])
+			render 'static_pages/home'
 		end
 	end
 
