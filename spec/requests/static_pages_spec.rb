@@ -22,6 +22,7 @@ describe "StaticPages" do
     before { visit root_path }
     it { should have_content('Sample App') }
     it { should have_title(full_title("Home")) }
+    
     describe "for signed in users" do
       let(:user) { FactoryGirl.create(:user) }
       before do
