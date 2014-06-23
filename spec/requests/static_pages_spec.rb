@@ -45,8 +45,8 @@ describe "StaticPages" do
           visit root_path
         end
 
-        it { should have_link("1 follower", href: follower_user_path(user)) }
-        it { should have_link("0 followed", href: followed_user_path(user)) }
+        it { should have_link("1 follower", href: followers_user_path(user)) }
+        it { should have_link("0 following", href: following_user_path(user)) }
       end
     end
   end
