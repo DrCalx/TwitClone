@@ -1,7 +1,7 @@
 SampleApp::Application.routes.draw do
   resources :users do
     member do
-      get :followed, :followers
+      get :following, :followers
     end
   end
   

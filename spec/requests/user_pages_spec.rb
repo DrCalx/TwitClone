@@ -149,4 +149,20 @@ describe "User" do
 			specify { expect(user.reload.email).to eq new_email }
 		end
 	end
+
+	describe "following/followers" do
+		let(:user) { FactoryGirl.create(:user) }
+		let(:other_user) { FactoryGirl.create(:user) }
+		before { user.follow!(other_user) }
+
+		describe "followed Users" do
+			before do
+				valid_signin user
+				visit following_user_path(user)
+			end
+		end
+
+		describe "following" do
+		end
+	end
 end
