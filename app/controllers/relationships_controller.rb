@@ -1,10 +1,9 @@
 class RelationshipsController < ApplicationController
 	before_action :signed_in_user
 	def create
-		#relationship = params[:relationship]
-		#@user = User.find(relationship[:followed_id])
-		#current_user.follow!(@user)
-		#edirect_to @user
+		@user = User.find(params[:relationship][:followed_id])
+		current_user.follow!(@user)
+		redirect_to @user
 	end
 
 	def destroy
