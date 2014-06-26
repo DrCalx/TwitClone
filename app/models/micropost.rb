@@ -3,4 +3,9 @@ class Micropost < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 	validates :user_id, presence: true
 	validates :content, presence: true, length: { maximum: 140 }
+
+	def self.from_followed_users(user)
+		followed_ids = "SELECT followed_id FROM relationships WHERE follower_id = :uid"
+		where("user_id IN (#{followed_ids}) OR user_id = :uid", uid: user.id)
+	end
 end

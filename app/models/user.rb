@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 	end
 
 	def feed
-		Micropost.where("user_id = ?", id)
+		Micropost.from_followed_users(self)
 	end
 
 	def following?(other_user)
